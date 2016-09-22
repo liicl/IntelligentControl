@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SettingActivity"
+    android:background="#ff323232">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/layout_button"
+        android:layout_alignParentBottom="true"
+        android:gravity="center">
+        <Button
+            android:layout_marginRight="25dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="save"
+            android:text="保存"/>
+        <Button
+            android:layout_marginLeft="25dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="cancel"
+            android:text="取消"/>
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical"
+        android:layout_above="@id/layout_button">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="15dp"
+            android:orientation="vertical">
+            <!-- 安全设置 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:elevation="15dp"
+                android:background="#ff383838"
+                android:padding="15dp"
+                android:paddingTop="20dp"
+                style="@style/SettingLayout">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="安全设置"
+                    style="@style/SettingTitle"/>
+                <!-- 密码设置 -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="密码设置"
+                    style="@style/SettingInsiderTitle"/>
+                <Switch
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="启动时要求输入密码"
+                    android:checked="false"
+                    android:id="@+id/sw_password"/>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="15dp"/>
+
+            <!-- 远程监控设置 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="15dp"
+                android:elevation="15dp"
+                android:background="#ff383838"
+                style="@style/SettingLayout">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="远程监控"
+                    style="@style/SettingTitle" />
+                <!-- 显示 -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/SettingInsiderTitle"
+                    android:text="显示方式" />
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/rg_camera_show_type">
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="保持宽高比"
+                    android:id="@+id/rb_camera_show_org"
+                    android:checked="true" />
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="拉伸至全屏"
+                    android:id="@+id/rb_camera_show_scr"/>
+                </RadioGroup>
+                <!-- 保存 -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/SettingInsiderTitle"
+                    android:text="保存位置 " />
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@android:drawable/ic_dialog_dialer"
+                    android:id="@+id/btn_camera_save_choose"
+                    android:onClick="choose"
+                    android:layout_alignParentRight="true"/>
+                    <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/et_camera_save_path"
+                    android:layout_alignBottom="@id/btn_camera_save_choose"
+                    android:layout_toLeftOf="@id/btn_camera_save_choose"/>
+                </RelativeLayout>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="15dp"/>
+
+            <!-- 环境控制 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="15dp"
+                android:elevation="15dp"
+                android:background="#ff383838"
+                style="@style/SettingLayout">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="环境控制"
+                    style="@style/SettingTitle" />
+                <!-- 刷新频率 -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/SettingInsiderTitle"
+                    android:text="环境参数刷新间隔(毫秒) " />
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:id="@+id/et_en_refresh_time"/>
+                <!-- 设置超时 -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/SettingInsiderTitle"
+                    android:text="单次请求超时(毫秒) " />
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="过小易致连接超时,最小3000"
+                    android:inputType="number"
+                    android:id="@+id/et_en_timeout"/>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="15dp"/>
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".old_activity.MainActivity">
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="视频监控"
+        android:id="@+id/btn_list_camera"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="环境监控"
+        android:id="@+id/btn_list_environment"
+        android:layout_below="@id/btn_list_camera"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="家电控制"
+        android:id="@+id/btn_list_control"
+        android:layout_below="@id/btn_list_environment"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="设置"
+        android:id="@+id/btn_list_setting"
+        android:layout_below="@id/btn_list_environment"/>
+
+</RelativeLayout>
